@@ -2,10 +2,10 @@
   "name": "bb8-sdk",
   "version": "0.0.1",
   "description": "A SDK to control the Sphero BB8 via Javascript over Bluetooth LE",
-  "main": "index.js",
+  "main": "bb8.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Jordan Majd",
+  "license": "MIT"
 }

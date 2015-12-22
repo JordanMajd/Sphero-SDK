@@ -1,0 +1,6 @@
+#Ignore NPM deps
+node_modules
+
+#Ignore all  log files
+*.log
+
