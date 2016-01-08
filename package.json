@@ -15,6 +15,7 @@
     "gulp-markdox": "^0.1.1"
   },
   "dependencies": {
+    "bluebird": "^3.1.1",
     "noble": "^1.2.1"
   }
 }

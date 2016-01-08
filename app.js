@@ -2,19 +2,19 @@
 
 var NobleConnection = require('./lib/connection/noble-connection');
 var CommandPacket = require('./lib/packet/command-packet');
-var api = require('./lib/api/api');
+// var api = require('./lib/api/api');
 var servicesList = require('./lib/utility/services-list');
-
-var nobleConn = new NobleConnection();
-
-nobleConn.connect('3ce5a3fa5fef4aeebe2c7858f8d8de25', function(){
-  console.log('ready');
-  setTimeout(sendTestPacket, 4000);
-  // sendTestPacket();
-});
-
-
-// var Packet = require('./lib/packet/packet');
+//
+// var nobleConn = new NobleConnection();
+//
+// nobleConn.connect('3ce5a3fa5fef4aeebe2c7858f8d8de25', function(){
+//   console.log('ready');
+//   setTimeout(sendTestPacket, 4000);
+//   // sendTestPacket();
+// });
+//
+//
+// // var Packet = require('./lib/packet/packet');
 // var myPacket = new Packet();
 // myPacket.createCommandPacket(0x01, 0x01, 0x52, undefined, true, true);
 //
@@ -30,7 +30,7 @@ nobleConn.connect('3ce5a3fa5fef4aeebe2c7858f8d8de25', function(){
 //
 // myPacket.readResponsePacket(testResponseBuffer);
 
-function sendTestPacket(){
+// function sendTestPacket(){
   // var data = new Buffer(3);
   // data.writeUInt8(0xFF, 0x00);
   // data.writeUInt8(0xFF, 0x01);
@@ -42,4 +42,16 @@ function sendTestPacket(){
   // nobleConn.writeCharectaristic('22bb746f2bb075542d6f726568705327', '22bb746f2bbf75542d6f726568705327', testBuff,function(){
     // console.log('changed color');
   // });
+// }
+
+let CoreCmd = require('./lib/command/core-command');
+// var command = Object.getPrototypeOf(new CoreCmd());
+// let cmd = new CoreCmd();
+
+let cmd = Object.getPrototypeOf(new CoreCmd());
+let newObj = {};
+for(let prop in cmd){
+  newObj[prop] = cmd[prop];
 }
+console.log(newObj);
+newObj.ping();
