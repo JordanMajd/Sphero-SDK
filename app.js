@@ -9,7 +9,8 @@ var nobleConn = new NobleConnection();
 
 nobleConn.connect('3ce5a3fa5fef4aeebe2c7858f8d8de25', function(){
   console.log('ready');
-  sendTestPacket();
+  setTimeout(sendTestPacket, 4000);
+  // sendTestPacket();
 });
 
 
@@ -30,10 +31,15 @@ nobleConn.connect('3ce5a3fa5fef4aeebe2c7858f8d8de25', function(){
 // myPacket.readResponsePacket(testResponseBuffer);
 
 function sendTestPacket(){
-  var data = new Buffer(0);
-  data.writeUInt8(0xFF);
-  data.writeUInt8(0xFF);
-  data.writeUInt8(0xFF);
-  var rollPacket = new CommandPacket(0x02, 0x20, 0x00, data, false, false);
-  nobleConn.writeCharectaristic('22bb746f2ba075542d6f726568705327', '22bb746f2ba175542d6f726568705327', rollPacket);
+  // var data = new Buffer(3);
+  // data.writeUInt8(0xFF, 0x00);
+  // data.writeUInt8(0xFF, 0x01);
+  // data.writeUInt8(0xFF, 0x02);
+  // var rollPacket = new CommandPacket(0x00, 0x11, 0x00, undefined, true, true);
+  // nobleConn.writeCharectaristic('22bb746f2ba075542d6f726568705327', '22bb746f2ba175542d6f726568705327', rollPacket.packetBuffer,function(){
+  // var testBuff = new Buffer(1);
+  // testBuff.writeUInt8(0x01);
+  // nobleConn.writeCharectaristic('22bb746f2bb075542d6f726568705327', '22bb746f2bbf75542d6f726568705327', testBuff,function(){
+    // console.log('changed color');
+  // });
 }
