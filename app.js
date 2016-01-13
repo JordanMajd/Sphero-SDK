@@ -60,7 +60,9 @@
 
 const BB8 = require('./lib/orb/bb8-orb');
 
-let myBB8 = new BB8()
+let myBB8 = new BB8('');
+
+myBB8.connection.connect()
   .then( () => {
     console.log('It worked!');
   })
