@@ -68,8 +68,15 @@ myBB8.connection.connect()
     return myBB8.command.setDevMode();
   })
   .then( () => {
-    console.log('Dev mode enabled');
-  })
-  .catch( (error) => {
-    console.error(error.stack);
+    console.log('Dev mode enabled...');
+    // return myBB8.command.roll();
+    // myBB8.connection.writeCharectaristic('22bb746f2bb075542d6f726568705327', '22bb746f2bbf75542d6f726568705327', new Buffer(255),function(){
+      // console.log('changed color');
+    // });
   });
+  // .then( () => {
+  //   console.log('Should be rolling...');
+  // })
+  // .catch( (error) => {
+  //   console.error(error.stack);
+  // });
