@@ -60,12 +60,16 @@
 
 const BB8 = require('./lib/orb/bb8-orb');
 
-let myBB8 = new BB8('');
+let myBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
 myBB8.connection.connect()
   .then( () => {
     console.log('It worked!');
+    return myBB8.command.setDevMode();
+  })
+  .then( () => {
+    console.log('Dev mode enabled');
   })
   .catch( (error) => {
-    console.error(error);
+    console.error(error.stack);
   });
