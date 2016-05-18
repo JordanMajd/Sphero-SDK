@@ -4,7 +4,7 @@ WIP - This project is in early development and is not ready for use.
 
 ## About
 
-This is a minimal, unopinionated library to control the Sphero BB8 using Javascript over Bluetooth LE.
+A minimal, unopinionated library to control Sphero, BB8 and Ollie using Javascript over Bluetooth.
 
 This project is neither endorsed by Sphero nor Disney.
 
