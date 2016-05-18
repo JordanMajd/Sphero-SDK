@@ -1,5 +1,5 @@
 {
-  "name": "bb8-sdk",
+  "name": "sphero-sdk",
   "version": "0.0.1",
   "description": "A minimal, unopinionated library to control the Sphero BB8 using Javascript over Bluetooth LE.",
   "main": "index.js",

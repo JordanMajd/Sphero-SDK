@@ -13,10 +13,10 @@ This project is neither endorsed by Sphero nor Disney.
 First use [npm](https://www.npmjs.com/) to install the package:
 
 ```bash
-npm install --save bb8-sdk
+npm install --save sphero-sdk
 ```
 
-Then start programming the BB8:
+Then connect to a device and start issuing commands:
 
 ```javascript
 'use strict';
