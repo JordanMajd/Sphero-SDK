@@ -2,6 +2,8 @@
 
 ## About
 
+This is a minimal, unopinionated library to control the Sphero BB8 using Javascript over Bluetooth LE.
+
 This project was started out of a desire to learn and an impulse to hack everything I own. Initially, I started using libraries that other people had written but I had a desire to have a deeper understanding. The solution, was to write my own library to control the BB8. This has been healthy, I've learned a lot about Bluetooth LE and has inspired me to use it in other projects.
 
 ## Getting Started
