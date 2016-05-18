@@ -60,6 +60,11 @@ To build:
 1. From the terminal, navigate into the repository's directory.
 1. Install NPM dependencies by running: `npm install`.
 
+To test:
+
+1. From the terminal, navigate into the repository's directory.
+1. Run the tests with the command: `npm test`.
+
 ## Road Map
 
 - Write tests for Packets.
