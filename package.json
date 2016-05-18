@@ -1,23 +1,32 @@
 {
-  "name": "sphero-sdk",
-  "version": "0.0.1",
-  "description": "A minimal, unopinionated library to control the Sphero BB8 using Javascript over Bluetooth LE.",
-  "main": "index.js",
-  "author": "Jordan Majd",
-  "license": "MIT",
-  "scripts": {
-    "test":"node_modules/.bin/jasmine"
-  },
-  "devDependencies": {
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-markdox": "^0.1.1",
-    "jasmine": "^2.4.1",
-    "nodemon": "^1.9.1"
-  },
-  "dependencies": {
-    "bluebird": "^3.1.1",
-    "noble": "^1.2.1"
-  }
+    "name": "sphero-sdk",
+    "version": "0.0.1",
+    "description": "A minimal, unopinionated library to control Sphero, BB8 and Ollie using Javascript over Bluetooth.",
+    "keywords": ["sphero", "bb8", "ollie", "robot", "sdk", "bluetooth", "ble"],
+    "homepage": "https://spherosdk.github.io",
+    "license": "MIT",
+    "author": "Jordan Majd",
+    "main": "index.js",
+    "scripts": {
+        "test": "node_modules/.bin/jasmine"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JordanMajd/Sphero-SDK.git"
+    },
+    "bugs": {
+        "url": "https://github.com/JordanMajd/Sphero-SDK/issues"
+    },
+    "devDependencies": {
+        "del": "^2.2.0",
+        "gulp": "^3.9.0",
+        "gulp-concat": "^2.6.0",
+        "gulp-markdox": "^0.1.1",
+        "jasmine": "^2.4.1",
+        "nodemon": "^1.9.1"
+    },
+    "dependencies": {
+        "bluebird": "^3.1.1",
+        "noble": "^1.2.1"
+    }
 }
