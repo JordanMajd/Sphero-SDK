@@ -1,5 +1,7 @@
 # BB8-SDK
 
+WIP - not ready for use yet.
+
 ## About
 
 This is a minimal, unopinionated library to control the Sphero BB8 using Javascript over Bluetooth LE.
@@ -26,7 +28,7 @@ var myBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
 myBB8.connection.connect()
   .then(function() {
-    
+
     console.log('Connected to BB8.');
 
     // ensure dev mode is enabled
@@ -60,9 +62,9 @@ To build:
 
 ## Road Map
 
-- Add content to Getting Started section in [README.md](/README.md).
-- Add sequencing support to CommandResolver.
+- Create documentation repo.
 - Create an example repository.
+- Add sequencing support to CommandResolver.
 - Web Bluetooth API and browser packaging.
 
 ## License
