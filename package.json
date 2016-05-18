@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Jordan Majd",
   "license": "MIT",
+  "scripts": {
+    "test":"node_modules/.bin/jasmine"
+  },
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.0",
