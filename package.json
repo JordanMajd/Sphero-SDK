@@ -1,7 +1,7 @@
 {
   "name": "bb8-sdk",
   "version": "0.0.1",
-  "description": "A SDK to control the Sphero BB8 via Javascript over Bluetooth LE",
+  "description": "A minimal, unopinionated library to control the Sphero BB8 using Javascript over Bluetooth LE.",
   "main": "index.js",
   "author": "Jordan Majd",
   "license": "MIT",
@@ -10,6 +10,7 @@
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-markdox": "^0.1.1",
+    "jasmine": "^2.4.1",
     "nodemon": "^1.9.1"
   },
   "dependencies": {
