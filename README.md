@@ -17,17 +17,18 @@ Before starting ensure:
 - [node.js](https://nodejs.org/en/) installed and configured.
 - Your device has Bluetooth LE support.
 
+To build:
+
 1. Clone the repository.
 1. From the terminal, navigate into the repository's directory.
 1. Install NPM dependencies by running: `npm install`.
 
 ## Road Map
 
-TODO
-
-## Resources
-
-TODO
+- Add content to Getting Started section in [README.md](/README.md).
+- Add sequencing support to CommandResolver.
+- Create an example repository.
+- Web Bluetooth API and browser packaging.
 
 ## License
 
