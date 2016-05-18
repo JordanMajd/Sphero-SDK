@@ -62,6 +62,7 @@ To build:
 
 ## Road Map
 
+- Write tests for Packets.
 - Create documentation repo.
 - Create an example repository.
 - Add sequencing support to CommandResolver.
