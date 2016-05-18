@@ -1,6 +1,6 @@
-# BB8-SDK
+# Sphero-SDK
 
-WIP - not ready for use yet.
+WIP - This project is in early development and is not ready for use.
 
 ## About
 
