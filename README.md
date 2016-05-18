@@ -8,7 +8,42 @@ This project was started out of a desire to learn and an impulse to hack everyth
 
 ## Getting Started
 
-TODO
+First use [npm](https://www.npmjs.com/) to install the package:
+
+```bash
+npm install --save bb8-sdk
+```
+
+Then start programming the BB8:
+
+```javascript
+'use strict';
+
+var BB8 = require('bb8-sdk');
+
+// TODO Replace with your BB8's UUID
+var myBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
+
+myBB8.connection.connect()
+  .then(function() {
+    
+    console.log('Connected to BB8.');
+
+    // ensure dev mode is enabled
+    return myBB8.command.setDevMode();
+  })
+  .then(function() {
+
+    // start rolling forward
+    return myBB8.command.roll(255, 0);
+  })
+  .then(function() {
+    console.log('We are rolling!');
+  })
+  .catch(function(err){
+    console.error(Something went wrong!);
+  });
+```
 
 ## Building from Source
 

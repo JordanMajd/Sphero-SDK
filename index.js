@@ -1,10 +1,15 @@
+/*!
+ * bb8-sdk
+ * Copyright(c) 2015-2016 Jordan Majd
+ * MIT Licensed
+ */
+
 'use strict';
 
-//TODO create command queue
-//Needs sequencing wrapping 0-255
-//When we receive a response we can execute next command in queue, or resolve promise.
-
-//TODO add wait command so you can chain promises with a wait
+/**
+ * Module dependencies.
+ * @private
+ */
 
 const BB8 = require('./dist/orb/bb8-orb');
 
@@ -30,3 +35,5 @@ myBB8.connection.connect()
     console.error(err);
     console.error(err.stack);
   });
+
+module.exports = BB8;
