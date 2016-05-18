@@ -11,7 +11,7 @@
  * @private
  */
 
-const BB8 = require('./dist/orb/bb8-orb');
+const BB8 = require('./dist/device/bb8-device');
 
 let myBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 let ctx = myBB8.command;
