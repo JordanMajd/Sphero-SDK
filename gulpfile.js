@@ -1,38 +1,29 @@
 'use strict';
 
-var gulp = require('gulp');
-var concat = require("gulp-concat");
-var markdox = require("gulp-markdox");
-var del = require('del');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const markdox = require('gulp-markdox');
+const del = require('del');
 
-var paths = {
+const paths = {
   javascript: 'lib/**/*.js',
-  documentation: 'doc',
-  distribution: 'dist'
+  source: 'lib/**/*',
+  documentation: 'doc'
 };
 
 // clean documenation then build documentation for all js
-gulp.task("docs",['clean-docs'], function(){
+gulp.task('build-docs', ['clean-docs'], () => {
   return gulp.src(paths.javascript)
     .pipe(markdox())
-    .pipe(concat("doc.md"))
+    .pipe(concat('doc.md'))
     .pipe(gulp.dest(paths.documentation));
 });
 
 // delete existing documentation
-gulp.task('clean-docs', function(){
+gulp.task('clean-docs', () => {
   return del(paths.documentation);
 });
 
-// clean current build and then build all js
-gulp.task('build', ['clean'], function(){
-  return gulp.src(paths.javascript)
-    .pipe(gulp.dest(paths.distribution));
-});
 
-// delete existing build
-gulp.task('clean', function(){
-  return del(paths.distribution);
-});
-
-gulp.task('default', ['build']);
+// default clean then build
+gulp.task('default', ['build-docs']);
