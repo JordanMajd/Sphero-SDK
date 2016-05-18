@@ -6,7 +6,7 @@ WIP - not ready for use yet.
 
 This is a minimal, unopinionated library to control the Sphero BB8 using Javascript over Bluetooth LE.
 
-This project was started out of a desire to learn and an impulse to hack everything I own. Initially, I started using libraries that other people had written but I had a desire to have a deeper understanding. The solution, was to write my own library to control the BB8. This has been healthy, I've learned a lot about Bluetooth LE and has inspired me to use it in other projects.
+This project is neither endorsed by Sphero nor Disney.
 
 ## Getting Started
 
@@ -21,23 +21,23 @@ Then start programming the BB8:
 ```javascript
 'use strict';
 
-var BB8 = require('bb8-sdk');
+var SpheroSDK = require('sphero-sdk');
 
 // TODO Replace with your BB8's UUID
-var myBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
+var myDevice = new SpheroSDK.BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-myBB8.connection.connect()
+myDevice.connection.connect()
   .then(function() {
 
     console.log('Connected to BB8.');
 
     // ensure dev mode is enabled
-    return myBB8.command.setDevMode();
+    return myDevice.command.setDevMode();
   })
   .then(function() {
 
     // start rolling forward
-    return myBB8.command.roll(255, 0);
+    return myDevice.command.roll(255, 0);
   })
   .then(function() {
     console.log('We are rolling!');
@@ -67,9 +67,11 @@ To test:
 
 ## Road Map
 
-- Write tests for Packets.
-- Create documentation repo.
-- Create an example repository.
+- Deploy to NPM
+- Write tests.
+- Create project site for docs, projects and examples.
+- Create an examples repository.
+- Add support for bots other than BB8.
 - Add sequencing support to CommandResolver.
 - Web Bluetooth API and browser packaging.
 
