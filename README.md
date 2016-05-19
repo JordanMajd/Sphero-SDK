@@ -69,6 +69,8 @@ To test:
 
 - Deploy to NPM
 - Write tests.
+- Add way to listen for async messages from devices.
+- Investigate using generators instead of promises.
 - Create project site for docs, projects and examples.
 - Create an examples repository.
 - Add support for bots other than BB8.
