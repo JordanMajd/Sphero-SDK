@@ -10,6 +10,7 @@ const BB8 = require('../../lib/sphero-sdk').BB8;
 const CommandPacket = require('../../lib/packet/command-packet');
 const CORE_API = require('../../lib/utility/api').CORE_API;
 const CONTROL_SERVICE = require('../../lib/utility/services').CONTROL_SERVICE;
+const fail = require('chai').assert.fail;
 
 let testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
