@@ -16,7 +16,9 @@ describe('command', () => {
 
     pingBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-    pingBB8.connection.connect().then(() => {
+    pingBB8.connection.connect()
+    .then(pingBB8.command.setDevMode)
+    .then(() => {
       done();
     });
 
