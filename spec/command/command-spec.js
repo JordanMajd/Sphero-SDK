@@ -9,21 +9,22 @@
 const BB8 = require('../../lib/sphero-sdk').BB8;
 const CommandPacket = require('../../lib/packet/command-packet');
 const CORE_API = require('../../lib/utility/api').CORE_API;
-const CONTROL_SERVICE = require('../../lib/utility/service').CONTROL_SERVICE;
+const CONTROL_SERVICE = require('../../lib/utility/services').CONTROL_SERVICE;
 
-let testDevice;
+let testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
 describe('command', commandSpec);
 
 function commandSpec() {
 
-  it('connections with the device', (done) => {
+  describe('listDevices', listDevicesSpec);
+  describe('connect', connectSpec);
+  describe('send', sendSpec);
+  describe('disconnect', disconnectSpec);
 
-    testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
+}
 
-    testDevice.connect().catch(fail).finally(done);
-
-  });
+function sendSpec() {
 
   it('sends packets to device', (done) => {
 
@@ -32,11 +33,33 @@ function commandSpec() {
     testDevice.send(CONTROL_SERVICE.id, CONTROL_SERVICE.commandsCharacteristic, packet).catch(fail).finally(done);
 
   });
+}
 
+function connectSpec() {
+
+  it('connections with the device', (done) => {
+
+    testDevice.connect().catch(fail).finally(done);
+
+  });
+}
+
+function disconnectSpec() {
 
   it('disconnects from the device', (done) => {
 
     testDevice.disconnect().catch(fail).finally(done);
+
+  });
+}
+
+function listDevicesSpec() {
+
+  it('lists all bluetooth devices', (done) => {
+
+    testDevice.listDevices().then((list) => {
+      console.log(list);
+    }).catch(fail).finall(done);
 
   });
 }

@@ -16,7 +16,7 @@
   "author": "Jordan Majd",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/jasmine"
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,13 @@
     "url": "https://github.com/JordanMajd/Sphero-SDK/issues"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-markdox": "^0.1.1",
     "jasmine": "^2.4.1",
+    "mocha": "^2.4.5",
     "nodemon": "^1.9.1"
   },
   "dependencies": {
