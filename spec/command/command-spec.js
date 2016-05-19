@@ -10,18 +10,18 @@ const BB8 = require('../../lib/sphero-sdk').BB8;
 
 describe('command', () => {
 
-  let pingBB8;
+  let testDevice;
 
   beforeEach(doBeforeEach);
 
   afterEach(doAfterEach);
 
-  describe('ping', pingSpec);
+  describe('ping', ping);
 
   // disconnect from device after each test
   function doAfterEach(done) {
 
-    pingBB8.connection.disconnect().then(() => {
+    testDevice.disconnect().then(() => {
       done();
     });
   }
@@ -29,22 +29,22 @@ describe('command', () => {
   // connect to device for each test
   function doBeforeEach(done) {
 
-    pingBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
+    testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-    pingBB8.connection.connect()
+    testDevice.connect()
       .then(() => {
-        return pingBB8.command.setDevMode();
+        return testDevice.setDevMode();
       })
       .then(() => {
         done();
       });
   }
 
-  function pingSpec() {
+  function ping() {
 
     it('pings the device and the device responds', (done) => {
 
-      pingBB8.command.ping()
+      testDevice.ping()
         .then(() => {
           expect(true).toBe(true);
           done();
