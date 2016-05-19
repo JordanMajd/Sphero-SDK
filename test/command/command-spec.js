@@ -13,7 +13,7 @@ const CONTROL_SERVICE = require('../../lib/utility/services').CONTROL_SERVICE;
 
 let testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-describe('command', commandSpec);
+describe('Command', commandSpec);
 
 function commandSpec() {
 
@@ -26,7 +26,7 @@ function commandSpec() {
 
 function sendSpec() {
 
-  it('sends packets to device', () => {
+  it('sends packets to device', function() {
 
     let packet = new CommandPacket(CORE_API.DID_CORE, CORE_API.CMD_PING).packetBuffer;
 
@@ -37,22 +37,24 @@ function sendSpec() {
 
 function connectSpec() {
 
-  it('connections with the device', () => testDevice.connect());
+  it('connections with the device', function(){
+    return testDevice.connect();
+  });
 }
 
 function disconnectSpec() {
 
-  it('disconnects from the device', () =>  testDevice.disconnect());
-
+  it('disconnects from the device', function(){
+    return testDevice.disconnect();
+  });
 }
 
 function listDevicesSpec() {
 
-  it('lists all bluetooth devices', () => {
+  it('lists all bluetooth devices', function() {
 
     return testDevice.listDevices().then((list) => {
       console.log(list);
     });
-
   });
 }

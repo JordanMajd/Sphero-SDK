@@ -10,7 +10,7 @@ const BB8 = require('../../lib/sphero-sdk').BB8;
 
 let testDevice;
 
-describe('CoreCommands', () => {
+describe('CoreCommand', function() {
 
   beforeEach(initDevice);
   afterEach(terminateDevice);
@@ -22,8 +22,9 @@ describe('CoreCommands', () => {
 
 function pingSpec() {
 
-  it('pings the device and the device responds', () => testDevice.ping());
-
+  it('pings the device and the device responds', function(){
+    return testDevice.ping();
+  });
 }
 
 // connect to device for each test
