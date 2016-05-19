@@ -8,35 +8,39 @@
 
 const BB8 = require('../../lib/sphero-sdk').BB8;
 
-describe('command', function() {
+describe('command', () => {
 
   let pingBB8;
 
-  beforeEach(function(done) {
+  beforeEach((done) => {
+
     pingBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
-    pingBB8.connection.connect().then(function() {
+
+    pingBB8.connection.connect().then(() => {
       done();
     });
+
   });
 
-  afterEach(function(done){
-    pingBB8.connection.disconnect().then(function() {
+  afterEach(function(done) {
+
+    pingBB8.connection.disconnect().then(() => {
       done();
     });
+
   });
 
 
-  it('pings the device and the device responds', function(done) {
+  it('pings the device and the device responds', (done) => {
 
     pingBB8.command.ping()
-      .then(function() {
+      .then(() => {
         expect(true).toBe(true);
         done();
       })
-      .catch(function() {
+      .catch(() => {
         expect(true).toBe(false);
         done();
       });
-
   });
 });
