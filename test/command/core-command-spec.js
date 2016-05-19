@@ -22,22 +22,21 @@ describe('CoreCommands', () => {
 
 function pingSpec() {
 
-  it('pings the device and the device responds', (done) => {
-    testDevice.ping().catch(fail).finally(done);
-  });
+  it('pings the device and the device responds', () => testDevice.ping());
+
 }
 
 // connect to device for each test
-function initDevice(done) {
+function initDevice() {
 
   testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-  testDevice.connect().then(done);
+  return testDevice.connect();
 }
 
 // disconnect from device after each test
-function terminateDevice(done) {
+function terminateDevice() {
 
-  testDevice.disconnect().then(done);
+  return testDevice.disconnect();
 
 }
