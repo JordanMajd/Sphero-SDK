@@ -26,21 +26,24 @@ var SpheroSDK = require('sphero-sdk');
 // TODO Replace with your BB8's UUID
 var myDevice = new SpheroSDK.BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-myDevice.connection.connect()
+myDevice.connect()
   .then(function() {
 
     console.log('Connected to BB8.');
 
     // ensure dev mode is enabled
-    return myDevice.command.setDevMode();
+    return myDevice.setDevMode();
   })
   .then(function() {
 
     // start rolling forward
-    return myDevice.command.roll(255, 0);
+    return myDevice.roll(255, 0);
   })
   .then(function() {
     console.log('We are rolling!');
+
+    // disconnect from device
+    return myDevice.disconnect();
   })
   .catch(function(err){
     console.error(Something went wrong!);

@@ -7,53 +7,36 @@
 'use strict';
 
 const BB8 = require('../../lib/sphero-sdk').BB8;
+const CommandPacket = require('../../lib/packet/command-packet');
+const CORE_API = require('../../lib/utility/api').CORE_API;
+const CONTROL_SERVICE = require('../../lib/utility/service').CONTROL_SERVICE;
 
-describe('command', () => {
+let testDevice;
 
-  let testDevice;
+describe('command', commandSpec);
 
-  beforeEach(doBeforeEach);
+function commandSpec() {
 
-  afterEach(doAfterEach);
-
-  describe('ping', ping);
-
-  // disconnect from device after each test
-  function doAfterEach(done) {
-
-    testDevice.disconnect().then(() => {
-      done();
-    });
-  }
-
-  // connect to device for each test
-  function doBeforeEach(done) {
+  it('connections with the device', (done) => {
 
     testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-    testDevice.connect()
-      .then(() => {
-        return testDevice.setDevMode();
-      })
-      .then(() => {
-        done();
-      });
-  }
+    testDevice.connect().catch(fail).finally(done);
 
-  function ping() {
+  });
 
-    it('pings the device and the device responds', (done) => {
+  it('sends packets to device', (done) => {
 
-      testDevice.ping()
-        .then(() => {
-          expect(true).toBe(true);
-          done();
-        })
-        .catch(() => {
-          expect(true).toBe(false);
-          done();
-        });
-    });
-  }
+    let packet = new CommandPacket(CORE_API.DID_CORE, CORE_API.CMD_PING).packetBuffer;
 
-});
+    testDevice.send(CONTROL_SERVICE.id, CONTROL_SERVICE.commandsCharacteristic, packet).catch(fail).finally(done);
+
+  });
+
+
+  it('disconnects from the device', (done) => {
+
+    testDevice.disconnect().catch(fail).finally(done);
+
+  });
+}
