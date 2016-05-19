@@ -12,26 +12,23 @@ const CORE_API = require('../../lib/utility/api').CORE_API;
 const CONTROL_SERVICE = require('../../lib/utility/services').CONTROL_SERVICE;
 const assert = require('chai').assert;
 
-let defaultTimeout = 5000;
 let testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
 
-describe('Command', commandSpec);
+describe('Command',function () {
 
-function commandSpec() {
+  this.timeout(5000);
 
   describe('listDevices', listDevicesSpec);
   describe('connect', connectSpec);
   describe('send', sendSpec);
   describe('disconnect', disconnectSpec);
 
-}
+});
 
 function sendSpec() {
 
   it('sends packets to device', function() {
-
-    this.timeout(defaultTimeout);
 
     let packet = new CommandPacket(CORE_API.DID_CORE, CORE_API.CMD_PING).packetBuffer;
 
@@ -44,8 +41,6 @@ function connectSpec() {
 
   it('connects to the device', function() {
 
-    this.timeout(defaultTimeout);
-
     return testDevice.connect();
   });
 }
@@ -53,8 +48,6 @@ function connectSpec() {
 function disconnectSpec() {
 
   it('disconnects from the device', function() {
-
-    this.timeout(defaultTimeout);
 
     return testDevice.disconnect();
   });
