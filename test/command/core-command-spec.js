@@ -16,7 +16,7 @@ describe('CoreCommand', function() {
 
   before(initDevice);
 
-  describe('ping', pingSpec);
+  // describe('ping', pingSpec);
   describe('setAutoReconnect', setAutoReconnectSpec);
   describe('getAutoReconnect', getAutoReconnectSpec);
 
@@ -35,7 +35,9 @@ function pingSpec() {
 function setAutoReconnectSpec(){
 
   it('enables autoreconnect', function(){
-    return testDevice.setAutoReconnect(true);
+    return testDevice.setAutoReconnect(true).then(function(packet){
+      console.log(packet);
+    });
   });
 
   xit('enables autoreconnect with timeout', function(){
