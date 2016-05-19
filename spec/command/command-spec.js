@@ -12,37 +12,48 @@ describe('command', () => {
 
   let pingBB8;
 
-  beforeEach((done) => {
+  beforeEach(doBeforeEach);
 
-    pingBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
+  afterEach(doAfterEach);
 
-    pingBB8.connection.connect()
-    .then(pingBB8.command.setDevMode)
-    .then(() => {
-      done();
-    });
+  describe('ping', pingSpec);
 
-  });
-
-  afterEach(function(done) {
+  // disconnect from device after each test
+  function doAfterEach(done) {
 
     pingBB8.connection.disconnect().then(() => {
       done();
     });
+  }
 
-  });
+  // connect to device for each test
+  function doBeforeEach(done) {
 
+    pingBB8 = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-  it('pings the device and the device responds', (done) => {
-
-    pingBB8.command.ping()
+    pingBB8.connection.connect()
       .then(() => {
-        expect(true).toBe(true);
-        done();
+        return pingBB8.command.setDevMode();
       })
-      .catch(() => {
-        expect(true).toBe(false);
+      .then(() => {
         done();
       });
-  });
+  }
+
+  function pingSpec() {
+
+    it('pings the device and the device responds', (done) => {
+
+      pingBB8.command.ping()
+        .then(() => {
+          expect(true).toBe(true);
+          done();
+        })
+        .catch(() => {
+          expect(true).toBe(false);
+          done();
+        });
+    });
+  }
+
 });
