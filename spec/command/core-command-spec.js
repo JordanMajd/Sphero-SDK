@@ -32,19 +32,12 @@ function initDevice(done) {
 
   testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
 
-  testDevice.connect()
-    .then(() => {
-      return testDevice.setDevMode();
-    })
-    .then(() => {
-      done();
-    });
+  testDevice.connect().then(done);
 }
 
 // disconnect from device after each test
 function terminateDevice(done) {
 
-  testDevice.disconnect().then(() => {
-    done();
-  });
+  testDevice.disconnect().then(done);
+
 }
