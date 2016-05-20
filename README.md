@@ -71,14 +71,15 @@ To test:
 ## Road Map
 
 - Deploy to NPM
-- Write tests.
-- Add way to listen for async messages from devices.
-- Investigate using generators instead of promises.
+- List supported devices.
 - Create project site for docs, projects and examples.
-- Create an examples repository.
-- Add support for bots other than BB8.
+- Add support for Sphero, Ollie.
+- Add continuous integration.
+- Add Coverall test coverage support.
+- Add event listeners for async messages from device.
 - Add sequencing support to CommandResolver.
-- Web Bluetooth API and browser packaging.
+- Add Web Bluetooth support and browser packaging.
+
 
 ## License
 
