@@ -17,9 +17,13 @@ describe('CoreCommand', function() {
 
   before(initDevice);
 
-  // describe('ping', pingSpec);
+  describe('ping', pingSpec);
+  describe('getVersion', getVersionSpec);
+  // describe('setBluetoothName', setBluetoothNameSpec);
+  // describe('getBluetoothInfo', getBluetoothInfoSpec);
+  // either set or get isnt working
   describe('setAutoReconnect', setAutoReconnectSpec);
-  // describe('getAutoReconnect', getAutoReconnectSpec);
+  describe('getAutoReconnect', getAutoReconnectSpec);
 
   after(terminateDevice);
 
@@ -29,7 +33,32 @@ describe('CoreCommand', function() {
 function pingSpec() {
 
   it('pings the device and the device responds', function(){
-    return testDevice.ping();
+    return testDevice.ping().then(function(packet){
+      assert(packet.msrp === 0x00, 'Successful response.');
+    });
+  });
+}
+
+function getVersionSpec(){
+
+  it('requests the device\'s version information', function(){
+    return testDevice.getVersion().then(function(packet){
+      assert(packet.msrp === 0x00, 'Successful response.');
+    });
+  });
+}
+
+function setBluetoothNameSpec(){
+    //TODO
+}
+
+function getBluetoothInfoSpec(){
+  it('requests the device\'s bluetooth information', function(){
+    return testDevice.getBluetoothInfo().then(function(packet){
+      console.log(packet);
+      //TODO handle packets who are split into two
+      assert(packet.msrp === 0x00, 'Successful response.');
+    });
   });
 }
 
@@ -37,44 +66,46 @@ function setAutoReconnectSpec(){
 
   it('enables autoreconnect', function(){
     return testDevice.setAutoReconnect(true).then(function(packet){
-      console.log(packet.msrp);
-      assert(packet.msrp === 0x00, 'MSRP equals 0x00');
+      assert(packet.msrp === 0x00, 'Successful response.');
+      assert(packet.dlen === 0x01, 'Correct response length.');
     });
   });
 
-  // xit('enables autoreconnect with timeout', function(){
-  //   return testDevice.setAutoReconnect(true, 60);
-  // });
-  //
-  // xit('sets the device to not autoreconnect', function(){
-  //   return testDevice.setAutoReconnect(false);
-  // });
+
+  it('enables autoreconnect with timeout', function(){
+    return testDevice.setAutoReconnect(true, 60).then(function(packet){
+      assert(packet.msrp === 0x00, 'Successful response.');
+      assert(packet.dlen === 0x01, 'Correct response length.');
+    });
+  });
+
+
+  it('disables autoreconnect', function(){
+    return testDevice.setAutoReconnect(false).then(function(packet){
+      assert(packet.msrp === 0x00, 'Successful response.');
+      assert(packet.dlen === 0x01, 'Correct response length.');
+    });
+  });
+
+
 
 }
 
 function getAutoReconnectSpec(){
-
-  xit('checks if autoreconnect is enabled', function(){
-    return testDevice.getAutoReconnect();
-  });
-
-  xit('checks if autoreconnects after timeout', function(){
-    return testDevice.getAutoReconnect();
-  });
-
-  it('checks if autoreconnect is disabled', function(){
+  it('requests autoreconnect information', function(){
     return testDevice.getAutoReconnect().then(function(packet){
-      console.log(packet);
+      assert(packet.msrp === 0x00, 'Successful response.');
+      assert(packet.dlen === 0x03, 'Correct response length.');
     });
   });
-
 }
+
 
 // connect to device for each test
 function initDevice() {
 
   testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
-  // testDevice.connect();
+
   return testDevice.connect();
 }
 
