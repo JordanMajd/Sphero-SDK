@@ -72,13 +72,21 @@ To test:
 
 ## Project Road Map
 
-- Deploy to NPM, downloads and version badges.
+- Deploy to NPM
+  - add downloads badge.
+  - add version badge.
+- Add support for:
+  - Sphero
+  - Sphero SPRK
+  - Ollie
 - Create project site for docs, projects and examples.
-- Add support for Sphero, Ollie.
-- Add continuous integration, build status badge
-- Add Coverall test coverage support.
-- Add event listeners for async messages from device.
+- Setup Travis CI for unit testing builds.
+  - add build status badge.
+- Setup Coverall.
+  - add test coverage badge.
+- Add event driven support to listen for async messages from devices.
 - Add sequencing support to CommandResolver.
+- Add support for multi-responses to hold large data.
 - Add Web Bluetooth support and browser packaging.
 
 ## License
