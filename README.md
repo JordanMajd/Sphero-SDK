@@ -80,6 +80,7 @@ To test:
   - Sphero SPRK
   - Ollie
 - Create project site for docs, projects and examples.
+- Create a mock device for CI and unit testing w/o devices present.
 - Setup Travis CI for unit testing builds.
   - add build status badge.
 - Setup Coverall.
