@@ -2,6 +2,8 @@
 
 :warning: This project is in early development and is not ready for use. :warning:
 
+If you like or are using this project, please give it a :star: for motivation :)
+
 ## About
 
 A minimal, unopinionated library to control Sphero, BB8 and Ollie using Javascript over Bluetooth.
