@@ -25,6 +25,22 @@ First use [npm](https://www.npmjs.com/) to install the package:
 npm install --save sphero-sdk
 ```
 
+Next, ensure your computers bluetooth is enabled.
+
+If you are connecting to a BB8 or Ollie you will need your devices UUID. If you don't know the UUID of your device you can search for it:
+
+```javascript
+'use strict';
+
+var SpheroSDK = require('sphero-sdk');
+
+SpheroSDK.listDevices().then(function(list){
+  list.forEach(function(device){
+    console.log(device.uuid);
+  });
+);
+```
+
 Then connect to a device and start issuing commands:
 
 ```javascript
