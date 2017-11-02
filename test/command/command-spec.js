@@ -12,8 +12,7 @@ const CORE_API = require('../../lib/utility/api').CORE_API;
 const CONTROL_SERVICE = require('../../lib/utility/services').CONTROL_SERVICE;
 const assert = require('chai').assert;
 
-let testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
-
+let testDevice = new BB8('f0c66751cc7f');
 
 describe('Command',function () {
 

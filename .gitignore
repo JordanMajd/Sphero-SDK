@@ -1,6 +1,9 @@
 #Ignore NPM deps
 node_modules
+package-lock.json
 
-#Ignore all  log files
+#Ignore all log files
 *.log
 
+#Ignore temp test file
+temp.js
