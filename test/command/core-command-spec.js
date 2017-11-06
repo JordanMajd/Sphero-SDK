@@ -86,9 +86,6 @@ function setAutoReconnectSpec(){
       assert(packet.dlen === 0x01, 'Correct response length.');
     });
   });
-
-
-
 }
 
 function getAutoReconnectSpec(){
@@ -104,7 +101,7 @@ function getAutoReconnectSpec(){
 // connect to device for each test
 function initDevice() {
 
-  testDevice = new BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
+  testDevice = new BB8('f0c66751cc7f');
 
   return testDevice.connect();
 }

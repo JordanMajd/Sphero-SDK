@@ -16,7 +16,7 @@ let testDevice = new BB8('f0c66751cc7f');
 
 describe('Command',function () {
 
-  this.timeout(5000);
+  this.timeout(10000);
 
   describe('listDevices', listDevicesSpec);
   describe('connect', connectSpec);
