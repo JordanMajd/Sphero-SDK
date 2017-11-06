@@ -39,9 +39,9 @@ If you are connecting to a BB8 or Ollie you will need your devices UUID. If you 
 ```javascript
 'use strict';
 
-var SpheroSDK = require('sphero-sdk');
+const BB8 = require('sphero-sdk').BB8;
 
-SpheroSDK.listDevices().then(function(list){
+BB8().listDevices().then(function(list){
   list.forEach(function(device){
     console.log(device.uuid);
   });
@@ -53,19 +53,15 @@ Then connect to a device and start issuing commands:
 ```javascript
 'use strict';
 
-var SpheroSDK = require('sphero-sdk');
+const SpheroSDK = require('sphero-sdk').BB8;
 
 // TODO Replace with your BB8's UUID
-var myDevice = new SpheroSDK.BB8('f0c66751cc7f');
+var myDevice = new BB8('f0c66751cc7f');
 
 myDevice.connect()
   .then(function() {
     // start rolling forward
     return myDevice.roll(255, 0);
-  })
-  .then(function() {
-    // keep rolling for 1 second
-    return myDevice.wait(1000);
   })
   .then(function() {
     // stop rolling
