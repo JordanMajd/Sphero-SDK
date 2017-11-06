@@ -1,7 +1,5 @@
 # Sphero-SDK
 
-:warning: This project is in early development and is not ready for use. :warning:
-
 If you like or are using this project, please give it a :star: for motivation :)
 
 ## About
@@ -12,20 +10,29 @@ A minimal, unopinionated library to control Sphero, BB8 and Ollie using Javascri
 
 #### Supported Devices:
 
-- BB8 (partial support, development in progress)
-- Ollie (partial support, development in progress)
-- Sphero (planned support)
-- Sphero SPRK (planned support)
+This SDK is still in development and has partial support for the following devices:
+
+- BB8
+- Ollie
+- Sphero SPRK
 
 ## Getting Started
 
-First use [npm](https://www.npmjs.com/) to install the package:
+Before starting ensure:
 
-```bash
-npm install --save sphero-sdk
-```
+- [node.js](https://nodejs.org/en/) installed and configured.
+- Your device has Bluetooth LE support and it is enabled.
 
-Next, ensure your computers bluetooth is enabled.
+To build:
+
+1. Clone the repository: `git clone https://github.com/JordanMajd/Sphero-SDK.git`
+1. From the terminal, navigate into the cloned directory.
+1. Install NPM dependencies by running: `npm install`.
+
+To test:
+
+1. From the terminal, navigate into the cloned directory.
+1. Run the tests with the command: `npm test`.
 
 If you are connecting to a BB8 or Ollie you will need your devices UUID. If you don't know the UUID of your device you can search for it:
 
@@ -49,7 +56,7 @@ Then connect to a device and start issuing commands:
 var SpheroSDK = require('sphero-sdk');
 
 // TODO Replace with your BB8's UUID
-var myDevice = new SpheroSDK.BB8('3ce5a3fa5fef4aeebe2c7858f8d8de25');
+var myDevice = new SpheroSDK.BB8('f0c66751cc7f');
 
 myDevice.connect()
   .then(function() {
@@ -70,40 +77,15 @@ myDevice.connect()
   });
 ```
 
-## Building from Source
-
-Before starting ensure:
-
-- [node.js](https://nodejs.org/en/) installed and configured.
-- Your device has Bluetooth LE support.
-
-To build:
-
-1. Clone the repository.
-1. From the terminal, navigate into the repository's directory.
-1. Install NPM dependencies by running: `npm install`.
-
-To test:
-
-1. From the terminal, navigate into the repository's directory.
-1. Run the tests with the command: `npm test`.
-
 ## Project Road Map
 
-- Deploy to NPM
-  - add downloads badge.
-  - add version badge.
-- Add support for:
+- Continue developing full API support for:
   - Sphero
   - Sphero SPRK
   - Ollie
+- Update project documentation and examples
 - Create project site for docs, projects and examples.
 - Create a mock device for CI and unit testing w/o devices present.
-- Setup Travis CI for unit testing builds.
-  - add build status badge.
-- Setup Coverall.
-  - add test coverage badge.
-- Add event driven support to listen for async messages from devices.
 - Add sequencing support to CommandResolver.
 - Add support for multi-responses to hold large data.
 - Add Web Bluetooth support and browser packaging.
