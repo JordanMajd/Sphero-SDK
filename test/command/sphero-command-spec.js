@@ -90,8 +90,8 @@ function rollSpec(){
 function initDevice(done) {
 
   testDevice = new BB8('f0c66751cc7f');
+  
   return testDevice.connect();
-
 }
 
 // disconnect from device after each test
